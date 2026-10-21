@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.3.0"
+ruby "3.3.6"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.6"
@@ -65,3 +65,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# These gems are required to enable ruby_ui compontent library
+gem "ruby_ui", "~> 1.6", :group => :development, :require => false
+gem "phlex-rails", "~> 2.4"
+gem "tailwind_merge", "~> 1.5"
