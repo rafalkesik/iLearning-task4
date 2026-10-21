@@ -70,3 +70,5 @@ end
 gem "ruby_ui", "~> 1.6", :group => :development, :require => false
 gem "phlex-rails", "~> 2.4"
 gem "tailwind_merge", "~> 1.5"
+
+gem "tailwindcss-rails", "~> 4.6"
