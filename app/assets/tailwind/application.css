@@ -3,3 +3,14 @@
 @source not "./daisyui{,*}.mjs";
 
 @plugin "./daisyui.mjs";
+
+@layer components {
+  .chart-container {
+    height: 700px;
+
+    @media (max-height: 900px) {
+      min-height: 300px;
+      height: 70vh;
+    }
+  }
+}
