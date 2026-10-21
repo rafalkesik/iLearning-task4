@@ -7,7 +7,12 @@
       <% end %>
     </div>
     <div class="navbar-end mr-10">
-      <a class="btn">Log in</a>
+      <% if user_signed_in? %>
+        <div class='mr-3'>Logged in as: <%= current_user.email %></div>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-soft' %>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: 'btn btn-soft' %>
+      <% end %>
     </div>
   </div>
 </div>
