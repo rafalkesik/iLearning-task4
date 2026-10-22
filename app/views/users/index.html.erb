@@ -3,7 +3,7 @@
     <!-- head -->
     <thead>
       <tr>
-        <th></th>
+        <th><input type="checkbox" class="checkbox checkbox-sm" /></th>
         <th>Name (id)</th>
         <th>Email</th>
         <th>Status</th>
@@ -11,13 +11,12 @@
       </tr>
     </thead>
     <tbody>
-      <!-- row 1 -->
       <% @users.each.with_index do |user, i| %>
         <tr class="hover:bg-base-200">
-          <th><%= i + 1 %></th>
+          <td><input type="checkbox" class="checkbox checkbox-sm" id=<%= user.id %> /></td>
           <td><%= user.id %></td>
           <td><%= user.email %></td>
-          <td><%= user.blocked ? 'Blocked' : 'Active' %></td>
+          <td><%= user.status %></td>
           <td><%= user.last_sign_in_at %></td>
         </tr>
       <% end %>
