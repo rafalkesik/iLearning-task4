@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is part of iLearning Ruby program by Itransition.
 
-Things you may want to cover:
+## How to run this project locally?
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Install Ruby version 3.3.6.
+2. Setup
+```bash
+gh repo clone rafalkesik/iLearning-task4
+cd iLearning-task4
+bundle install
+bin/rails db:setup
+```
+3. Run the app
+```bash
+rails server
+```
+4. Open http://localhost:3000.
