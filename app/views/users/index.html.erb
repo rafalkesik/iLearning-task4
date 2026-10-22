@@ -36,7 +36,7 @@
                 data-action='click->checkbox-select-all#toggleAll'
                 />
             </th>
-            <th>Name (id)</th>
+            <th>Name</th>
             <th>Email</th>
             <th>Status</th>
             <th>Last seen</th>
@@ -55,7 +55,7 @@
                   data-checkbox-select-all-target="checkbox"
                   data-action="click->checkbox-select-all#toggle" />
               </td>
-              <td><%= user.id %></td>
+              <td><%= user.full_name %></td>
               <td><%= user.email %></td>
               <td><%= user.status %></td>
               <td><%= user.last_sign_in_at %></td>
