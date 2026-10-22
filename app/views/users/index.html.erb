@@ -1,25 +1,59 @@
-<div class="overflow-x-auto">
-  <table class="table">
-    <!-- head -->
-    <thead>
-      <tr>
-        <th><input type="checkbox" class="checkbox checkbox-sm" /></th>
-        <th>Name (id)</th>
-        <th>Email</th>
-        <th>Status</th>
-        <th>Last seen</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each.with_index do |user, i| %>
-        <tr class="hover:bg-base-200">
-          <td><input type="checkbox" class="checkbox checkbox-sm" id=<%= user.id %> /></td>
-          <td><%= user.id %></td>
-          <td><%= user.email %></td>
-          <td><%= user.status %></td>
-          <td><%= user.last_sign_in_at %></td>
+<%= form_with url: bulk_block_users_path,
+              method: :patch,
+              data: { controller: 'checkbox-select-all' } do %>
+  <div class="overflow-x-auto">
+    <div>
+      <button type="submit" class="btn btn-sm btn-warning"
+              formaction="<%= bulk_block_users_path %>">Block selected</button>
+
+      <button type="submit" class="btn btn-sm btn-success"
+              formaction="<%= bulk_unblock_users_path %>">Unblock selected</button>
+
+      <button type="submit" class="btn btn-sm btn-error"
+              formaction="<%= bulk_destroy_users_path %>"
+              name="_method" value="delete"
+              data-turbo-confirm="Delete the selected users? This can't be undone.">Delete selected</button>
+    </div>
+
+    <table class="table" data-controller="checkbox-select-all" data-checkbox-select-all-toggle-key-value="x">
+      <thead>
+        <tr>
+          <th>
+            <input
+              type="checkbox"
+              class="checkbox checkbox-sm"
+              id='select-all-tasks'
+              autocomplete='off',
+              data-checkbox-select-all-target='selectAll'
+              data-action='click->checkbox-select-all#toggleAll'
+              />
+          </th>
+          <th>Name (id)</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Last seen</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <% @users.each.with_index do |user, i| %>
+          <tr class="hover:bg-base-200">
+            <td>
+              <input
+                type="checkbox"
+                class="checkbox checkbox-sm"
+                name='user_ids[]'
+                autocomplete='off',
+                value='<%= user.id %>'
+                data-checkbox-select-all-target="checkbox"
+                data-action="click->checkbox-select-all#toggle" />
+            </td>
+            <td><%= user.id %></td>
+            <td><%= user.email %></td>
+            <td><%= user.status %></td>
+            <td><%= user.last_sign_in_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
