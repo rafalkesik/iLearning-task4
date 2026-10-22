@@ -3,12 +3,14 @@
     <div class="navbar-start">  
       <%= link_to root_path, class: 'btn btn-ghost text-xl' do %>
         <%= image_tag 'logo.png', class: 'h-full', alt: 'UserManager 2000 logo' %>
-        UserManager 2000
+        <span class='max-sm:hidden'>
+          UserManager 2000
+        </span>
       <% end %>
     </div>
-    <div class="navbar-end mr-10">
+    <div class="navbar-end mr-5">
       <% if user_signed_in? %>
-        <div class='mr-3'>Logged in as: <%= current_user.email %></div>
+        <div class='mr-3 max-sm:hidden'>Logged in as: <%= current_user.email %></div>
         <%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-soft' %>
       <% else %>
         <%= link_to "Log in", new_user_session_path, class: 'btn btn-soft' %>
