@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StockViewer 2000</title>
+    <title>UserManager 2000</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
-    <%= favicon_link_tag 'new SV2000.png' %>
+    <%= favicon_link_tag 'logo.png' %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class=''>
+  <body class='h-screen flex flex-col'>
     <nav class=''>
       <%= render 'layouts/navbar' %>
     </nav>
     
-    <main class="container mx-auto mt-12 px-5 flex flex-col">
+    <main class="container mx-auto py-12 px-5 flex flex-col h-full">
       <%= yield %>
     </main>
   </body>

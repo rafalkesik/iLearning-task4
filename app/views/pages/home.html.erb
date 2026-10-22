@@ -1,12 +1,7 @@
 <div class='w-full'>
-  <h1 class="font-bold text-4xl">
-    StockViewer 2000
-  </h1>
-  <p>
-    Most incredible stock prices viewer in the market.
-  </p>
-
-  <div class='mt-5'>
-    <%= render 'pages/stock_viewer'%>
-  </div>
+  <% if user_signed_in? %>
+    Hello logged user!
+  <% else %>
+    <%= render 'pages/welcome_hero' %>
+  <% end %>
 </div>
