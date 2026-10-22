@@ -1,0 +1,26 @@
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name (id)</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Last seen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+      <% @users.each.with_index do |user, i| %>
+        <tr class="hover:bg-base-200">
+          <th><%= i + 1 %></th>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.blocked ? 'Blocked' : 'Active' %></td>
+          <td><%= user.last_sign_in_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
