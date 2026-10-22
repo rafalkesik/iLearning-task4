@@ -1,27 +1,34 @@
 <%= form_with url: bulk_block_users_path,
               method: :patch,
               data: { controller: 'checkbox-select-all' } do %>
-  <div class="overflow-x-auto">
-    <div>
+  <div class="overflow-x-auto max-w-250 mx-auto">
+    <div class='bg-base-200 p-2'>
       <button type="submit" class="btn btn-sm btn-warning"
-              formaction="<%= bulk_block_users_path %>">Block selected</button>
+              formaction="<%= bulk_block_users_path %>">
+        <%= image_tag 'lock.svg', class: 'h-3/4' %>
+        Block
+      </button>
 
       <button type="submit" class="btn btn-sm btn-success"
-              formaction="<%= bulk_unblock_users_path %>">Unblock selected</button>
+              formaction="<%= bulk_unblock_users_path %>">
+        <%= image_tag 'unlock.svg', class: 'h-3/4' %>
+      </button>
 
       <button type="submit" class="btn btn-sm btn-error"
               formaction="<%= bulk_destroy_users_path %>"
-              name="_method" value="delete"
-              data-turbo-confirm="Delete the selected users? This can't be undone.">Delete selected</button>
+              name="_method" value="delete">
+        <%= image_tag 'trash.svg', class: 'h-3/4' %>
+      </button>
     </div>
 
-    <table class="table" data-controller="checkbox-select-all" data-checkbox-select-all-toggle-key-value="x">
+    <table class="table" data-controller="checkbox-select-all"
+           data-checkbox-select-all-toggle-key-value="x">
       <thead>
-        <tr>
+        <tr class='hover:bg-base-200'>
           <th>
             <input
               type="checkbox"
-              class="checkbox checkbox-sm"
+              class="checkbox checkbox-sm bg-white"
               id='select-all-tasks'
               autocomplete='off',
               data-checkbox-select-all-target='selectAll'
@@ -40,7 +47,7 @@
             <td>
               <input
                 type="checkbox"
-                class="checkbox checkbox-sm"
+                class="checkbox checkbox-sm bg-white"
                 name='user_ids[]'
                 autocomplete='off',
                 value='<%= user.id %>'
