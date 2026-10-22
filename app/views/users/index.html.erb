@@ -29,7 +29,7 @@
             <th>
               <input
                 type="checkbox"
-                class="checkbox checkbox-sm bg-white"
+                class="checkbox checkbox-sm"
                 id='select-all-tasks'
                 autocomplete='off',
                 data-checkbox-select-all-target='selectAll'
@@ -48,14 +48,17 @@
               <td>
                 <input
                   type="checkbox"
-                  class="checkbox checkbox-sm bg-white"
+                  class="checkbox checkbox-sm"
                   name='user_ids[]'
                   autocomplete='off',
                   value='<%= user.id %>'
                   data-checkbox-select-all-target="checkbox"
                   data-action="click->checkbox-select-all#toggle" />
               </td>
-              <td><%= user.full_name %></td>
+              <td>
+                <p class='font-semibold'><%= user.full_name %></p>
+                <p class='font-light'><%= user.job_position %></p>
+              </td>
               <td><%= user.email %></td>
               <td><%= user.status %></td>
               <td><%= user.last_sign_in_at %></td>
