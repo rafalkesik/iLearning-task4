@@ -3,22 +3,41 @@
               data: { controller: 'checkbox-select-all' } do %>
   <div class="max-w-250 mx-auto">
     <div class='bg-base-200 p-2 flex flex-wrap gap-2'>
-      <button type="submit" class="btn btn-sm btn-warning"
-              formaction="<%= bulk_block_users_path %>">
-        <%= image_tag 'lock.svg', class: 'h-3/4' %>
-        Block
-      </button>
+      
+      <span class='relative group'>
+        <button type="submit" class="btn btn-sm btn-warning"
+                formaction="<%= bulk_block_users_path %>">
+          <%= image_tag 'lock.svg', class: 'h-3/4' %>
+          Block
+        </button>
+        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block
+               whitespace-nowrap rounded bg-gray-900 px-2 py-1 text-xs text-white">
+          Block selected users
+        </span>
+      </span>
 
-      <button type="submit" class="btn btn-sm btn-success"
-              formaction="<%= bulk_unblock_users_path %>">
-        <%= image_tag 'unlock.svg', class: 'h-3/4' %>
-      </button>
+      <span class='relative group'>
+        <button type="submit" class="btn btn-sm btn-success"
+                formaction="<%= bulk_unblock_users_path %>">
+          <%= image_tag 'unlock.svg', class: 'h-3/4' %>
+        </button>
+        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block
+               whitespace-nowrap rounded bg-gray-900 px-2 py-1 text-xs text-white">
+          Unblock selected users
+        </span>
+      </span>
 
-      <button type="submit" class="btn btn-sm btn-error"
-              formaction="<%= bulk_destroy_users_path %>"
-              name="_method" value="delete">
-        <%= image_tag 'trash.svg', class: 'h-3/4' %>
-      </button>
+      <span class='relative group'>
+        <button type="submit" class="btn btn-sm btn-error"
+                formaction="<%= bulk_destroy_users_path %>"
+                name="_method" value="delete">
+          <%= image_tag 'trash.svg', class: 'h-3/4' %>
+        </button>
+         <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block
+               whitespace-nowrap rounded bg-gray-900 px-2 py-1 text-xs text-white">
+          Delete selected users
+        </span>
+      </span>
     </div>
 
     <div class='overflow-x-auto'>
