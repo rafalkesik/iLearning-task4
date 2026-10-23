@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_bulk_users, only: %i[bulk_destroy bulk_block bulk_unblock]
-  before_action :authenticate_user!
 
   def index
     @users = User.order(:id)
