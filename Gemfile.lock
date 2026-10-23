@@ -113,9 +113,20 @@ GEM
       railties (>= 7.0)
       responders
       warden (~> 1.2.3)
+    dotenv (3.2.0)
     drb (2.2.3)
     erb (6.0.7)
     erubi (1.13.1)
+    faraday (2.15.0)
+      faraday-net_http (>= 2.0, < 3.6)
+      json
+      logger
+    faraday-multipart (1.2.0)
+      multipart-post (~> 2.0)
+    faraday-net_http (3.5.0)
+      net-http (~> 0.5)
+    faraday-retry (2.4.0)
+      faraday (~> 2.0)
     globalid (1.4.0)
       activesupport (>= 6.1)
     heroicon (1.0.0)
@@ -135,6 +146,7 @@ GEM
     jbuilder (2.15.1)
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
+    json (2.21.2)
     logger (1.7.0)
     loofah (2.25.2)
       crass (~> 1.0.2)
@@ -153,7 +165,11 @@ GEM
       drb (~> 2.0)
       prism (~> 1.5)
     msgpack (1.8.5)
+    multipart-post (2.4.1)
     mutex_m (0.3.0)
+    net-http (0.10.0)
+      net-protocol (>= 0.3.0)
+      uri (>= 0.11.1)
     net-imap (0.6.8)
       date
       net-protocol
@@ -261,8 +277,19 @@ GEM
     responders (3.2.1)
       actionpack (>= 7.0)
       railties (>= 7.0)
+    ruby_llm (2.1.1)
+      base64
+      faraday (>= 1.10.0, != 2.0.0)
+      faraday-multipart (>= 1)
+      faraday-net_http (>= 1)
+      faraday-retry (>= 1)
+      json (< 4)
+      marcel (>= 1.0, < 3)
+      schematist (~> 1.1)
+      zeitwerk (~> 2)
     ruby_ui (1.6.0)
     rubyzip (3.7.0)
+    schematist (1.1.0)
     securerandom (0.4.1)
     selenium-webdriver (4.51.0)
       base64 (~> 0.2)
@@ -300,6 +327,7 @@ GEM
       railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (1.1.2)
     view_component (3.27.0)
       activesupport (>= 5.2.0, < 8.2)
       concurrent-ruby (~> 1)
@@ -337,13 +365,16 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 5.0)
+  dotenv (>= 2.1.1)
   heroicon
   importmap-rails
   jbuilder
+  json (< 3)
   pg (~> 1.5)
   phlex-rails (~> 2.4)
   puma (>= 5.0)
   rails (~> 7.1.6)
+  ruby_llm (= 2.1.1)
   ruby_ui (~> 1.6)
   selenium-webdriver
   sprockets-rails

@@ -18,9 +18,13 @@ gem "devise", "~> 5.0"
 gem "pg", "~> 1.5"
 gem "view_component", "~> 3.5"
 gem 'heroicon'
+gem "ruby_llm", "= 2.1.1"
+gem 'json', '< 3'
+
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
+  gem 'dotenv', '>= 2.1.1'
 end
 
 group :development do
@@ -31,3 +35,4 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
