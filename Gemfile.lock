@@ -118,6 +118,8 @@ GEM
     erubi (1.13.1)
     globalid (1.4.0)
       activesupport (>= 6.1)
+    heroicon (1.0.0)
+      rails (>= 5.2)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.2.3)
@@ -145,6 +147,7 @@ GEM
       net-smtp
     marcel (1.2.1)
     matrix (0.4.3)
+    method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (6.0.6)
       drb (~> 2.0)
@@ -297,6 +300,10 @@ GEM
       railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    view_component (3.27.0)
+      activesupport (>= 5.2.0, < 8.2)
+      concurrent-ruby (~> 1)
+      method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -330,6 +337,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 5.0)
+  heroicon
   importmap-rails
   jbuilder
   pg (~> 1.5)
@@ -344,6 +352,7 @@ DEPENDENCIES
   tailwindcss-rails (~> 4.6)
   turbo-rails
   tzinfo-data
+  view_component (~> 3.5)
   web-console
 
 RUBY VERSION

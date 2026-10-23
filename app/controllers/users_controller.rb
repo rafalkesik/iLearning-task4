@@ -8,16 +8,19 @@ class UsersController < ApplicationController
 
   def bulk_destroy
     @bulk_users.destroy_all
+    flash[:success] = "Users deleted successfully"
     redirect_to users_path
   end
 
   def bulk_block
     @bulk_users.update_all(status: 'blocked')
+    flash[:success] = "Users blocked successfully"
     redirect_to users_path
   end
 
   def bulk_unblock
     @bulk_users.update_all(status: 'active')
+    flash[:success] = "Users unblocked successfully"
     redirect_to users_path
   end
 

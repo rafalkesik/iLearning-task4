@@ -16,6 +16,8 @@ gem "tailwind_merge", "~> 1.5"
 gem "tailwindcss-rails", "~> 4.6"
 gem "devise", "~> 5.0"
 gem "pg", "~> 1.5"
+gem "view_component", "~> 3.5"
+gem 'heroicon'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
