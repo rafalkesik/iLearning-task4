@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_bulk_users, only: %i[bulk_destroy bulk_block bulk_unblock]
 
   def index
-    @users = User.order(:id)
+    @users = User.order(current_sign_in_at: :desc)
   end
 
   def bulk_destroy
