@@ -1,0 +1,90 @@
+<%= form_with url: bulk_block_users_path,
+              method: :patch,
+              data: { controller: 'checkbox-select-all' } do %>
+  <div class="max-w-250 mx-auto">
+    <div class='bg-base-200 p-2 flex flex-wrap gap-2'>
+      
+      <span class='relative group'>
+        <button type="submit" class="btn btn-sm btn-warning"
+                formaction="<%= bulk_block_users_path %>">
+          <%= image_tag 'lock.svg', class: 'h-3/4' %>
+          Block
+        </button>
+        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block
+               whitespace-nowrap rounded bg-gray-900 px-2 py-1 text-xs text-white">
+          Block selected users
+        </span>
+      </span>
+
+      <span class='relative group'>
+        <button type="submit" class="btn btn-sm btn-success"
+                formaction="<%= bulk_unblock_users_path %>">
+          <%= image_tag 'unlock.svg', class: 'h-3/4' %>
+        </button>
+        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block
+               whitespace-nowrap rounded bg-gray-900 px-2 py-1 text-xs text-white">
+          Unblock selected users
+        </span>
+      </span>
+
+      <span class='relative group'>
+        <button type="submit" class="btn btn-sm btn-error"
+                formaction="<%= bulk_destroy_users_path %>"
+                name="_method" value="delete">
+          <%= image_tag 'trash.svg', class: 'h-3/4' %>
+        </button>
+         <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block
+               whitespace-nowrap rounded bg-gray-900 px-2 py-1 text-xs text-white">
+          Delete selected users
+        </span>
+      </span>
+    </div>
+
+    <div class='overflow-x-auto'>
+      <table class="table" data-controller="checkbox-select-all"
+             data-checkbox-select-all-toggle-key-value="x">
+        <thead>
+          <tr class='hover:bg-base-200'>
+            <th>
+              <input
+                type="checkbox"
+                class="checkbox checkbox-sm"
+                id='select-all-tasks'
+                autocomplete='off',
+                data-checkbox-select-all-target='selectAll'
+                data-action='click->checkbox-select-all#toggleAll'
+                />
+            </th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Last seen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each.with_index do |user, i| %>
+            <tr class="hover:bg-base-200">
+              <td>
+                <input
+                  type="checkbox"
+                  class="checkbox checkbox-sm"
+                  name='user_ids[]'
+                  autocomplete='off',
+                  value='<%= user.id %>'
+                  data-checkbox-select-all-target="checkbox"
+                  data-action="click->checkbox-select-all#toggle" />
+              </td>
+              <td>
+                <p class='font-semibold'><%= user.full_name %></p>
+                <p class='font-light'><%= user.job_position %></p>
+              </td>
+              <td><%= user.email %></td>
+              <td><%= user.status %></td>
+              <td><%= user.current_sign_in_at %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
