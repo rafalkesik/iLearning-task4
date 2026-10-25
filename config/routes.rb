@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       patch  :bulk_unblock
     end  
   end
+
+  post 'messages' => 'messages#create'
   
   root 'pages#home'
 end
