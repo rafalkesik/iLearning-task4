@@ -8,6 +8,8 @@ class MessagesController < ApplicationController
           turbo_stream.append('messages',
                               partial: 'users/question_and_answer',
                               locals: { message: params[:message], element_id: element_id }),
+          turbo_stream.replace('message-input',
+                               partial: 'users/chat_input_element'),
           turbo_stream.action(:focus, element_id)
         ]
       end
