@@ -20,6 +20,7 @@ gem "view_component", "~> 3.5"
 gem 'heroicon'
 gem "ruby_llm", "= 2.1.1"
 gem 'json', '< 3'
+gem "httparty", "~> 0.24.3"
 
 
 group :development, :test do
@@ -35,4 +36,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
