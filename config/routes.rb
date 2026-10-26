@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   end
 
   post 'messages' => 'messages#create'
+  namespace :api do
+    resources :users, only: :index
+  end
   
   root 'pages#home'
 end

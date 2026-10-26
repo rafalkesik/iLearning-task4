@@ -1,3 +1,36 @@
+<form action="api/users" method="get" class='flex flex-col w-60'>
+  <input type="text" name="name_regex"  placeholder="Imię (regex)">
+  <input type="text" name="job_regex"   placeholder="Stanowisko (regex)">
+  <input type="text" name="email_regex" placeholder="Email (regex)">
+
+  <select name="status">
+    <option value="">dowolny</option>
+    <option value="active">active</option>
+    <option value="blocked">blocked</option>
+  </select>
+
+  <input type="datetime-local" name="last_seen_start">
+  <input type="datetime-local" name="last_seen_end">
+
+  <select name="sort_by[]">
+    <option value="">bez sortowania</option>
+    <option value="full_name">full_name</option>
+    <option value="job_position">job_position</option>
+    <option value="email">email</option>
+    <option value="status">status</option>
+    <option value="last_seen_at">last_seen_at</option>
+  </select>
+  <select name="sort_by[]">
+    <option value="asc">ASC</option>
+    <option value="desc">DESC</option>
+  </select>
+
+  <input name="count" value="1">
+  <input name="list"  value="1">
+
+  <button type="submit">Szukaj</button>
+</form>
+
 <%= render 'users/users_table' %>
 
 <%= render 'users/chatbot' %>
