@@ -21,7 +21,9 @@
     <!-- Chat Container -->
     <div id='messages' class="pr-4 h-[474px] overflow-y-auto flex flex-col justify-start" style="min-width: 100%;">
       <!-- Chat Message AI -->
-      <%= render 'ai_message', message: 'Hello! I am here to help you analyse the data from the Users Table. What would you like to know? :)' %>
+      <%= render 'ai_message',
+                 message: 'Hello! I am here to help you analyse the data from the Users Table. What would you like to know? :)',
+                 element_id: "ai-initial-message" %>
     </div>
     <!-- Input box  -->
     <div class="flex items-center pt-0">
