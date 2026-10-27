@@ -2,6 +2,10 @@
               method: :patch,
               data: { controller: 'checkbox-select-all' } do %>
   <div class="max-w-250 mx-auto">
+    <div class="digg_pagination">
+      <%= will_paginate @posts, :container => false %>
+    </div>
+
     <div class='bg-base-200 p-2 flex flex-wrap gap-2'>
       
       <span class='relative group'>
@@ -51,6 +55,8 @@
                 class="checkbox checkbox-sm"
                 id='select-all-tasks'
                 autocomplete='off',
+                name='user_ids[]',
+                value='all_users',
                 data-checkbox-select-all-target='selectAll'
                 data-action='click->checkbox-select-all#toggleAll'
                 />

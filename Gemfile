@@ -21,6 +21,7 @@ gem 'heroicon'
 gem "ruby_llm", "= 2.1.1"
 gem 'json', '< 3'
 gem "httparty", "~> 0.24.3"
+gem 'will_paginate', '~> 3.3.0'
 
 
 group :development, :test do

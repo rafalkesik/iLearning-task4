@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_bulk_users, only: %i[bulk_destroy bulk_block bulk_unblock]
 
   def index
-    @users = User.order(current_sign_in_at: :desc)
+    @users = User.order(current_sign_in_at: :desc).paginate(page: params[:page])
   end
 
   def bulk_destroy
@@ -28,6 +28,8 @@ class UsersController < ApplicationController
     def set_bulk_users
       if params[:user_ids].blank?
         redirect_to users_path, alert: 'No users selected.'
+      elsif params[:user_ids].include?('all_users')
+        @bulk_users = User.all
       else
         @bulk_users = User.where(id: params[:user_ids])
       end

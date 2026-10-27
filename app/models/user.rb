@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :trackable
-         
+
   enum :status, { active: 'active', blocked: 'blocked' }, validate: true
+  self.per_page = 9
 end
